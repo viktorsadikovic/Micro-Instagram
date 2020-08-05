@@ -1,0 +1,12 @@
+<div class="card mb-3 post-thumbnail" style="max-width: 540px;" [routerLink]="['/posts', post.id]">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="..." [src]="post?.thumbnailUrl" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{ post?.title }}</h5>
+      </div>
+    </div>
+  </div>
+</div>

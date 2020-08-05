@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row details">
+    <div class="col-md-7">
+      <img [src]="post?.url">
+    </div>
+    <div class="col-sm-4">
+      <h3>{{ post?.title | uppercase}}</h3>
+      <br>
+      <h4>Album Title: {{ album?.title | uppercase }} </h4>
+      <h4>User: {{ user?.name }}</h4>
+      <h4>Username: {{ user?.username }}</h4>
+      <h4>Email: {{ user?.email }}</h4>
+      <h4>Image URL: <a [href]="post?.url">{{ post?.url }}</a></h4>
+      <div class="btn-group btn-group-lg">
+        <button class="btn btn-primary" (click)="editPost()" >Edit</button>
+        <span>&nbsp;</span>
+        <button class="btn btn-primary" (click)="deletePost()">Delete</button>
+
+      </div>
+    </div>
+  </div>
+
+</div>

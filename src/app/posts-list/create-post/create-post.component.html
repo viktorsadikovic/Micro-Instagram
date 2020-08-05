@@ -1,0 +1,34 @@
+<div class="lista">
+  <h1 class="naslov">New Photo: </h1>
+  <hr>
+  <div class="col-md-6">
+    <form #newPostForm="ngForm" (ngSubmit)="savePost(newPostForm.value)">
+      <div class="form-group" [ngClass]="{'error': newPostForm.controls.title?.invalid && newPostForm.controls.title?.touched}">
+        <label for="title">Photo title</label>
+        <em *ngIf="newPostForm.controls.title?.invalid && (newPostForm.controls.title?.touched)">Required</em>
+        <input (ngModel)="newPost.title" name="title" required id="title" type="text" class="form-control" placeholder="Enter your photo title">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': newPostForm.controls.url?.invalid && newPostForm.controls.url?.touched}">
+        <label for="url">Photo URL</label>
+        <em *ngIf="newPostForm.controls.url?.invalid && (newPostForm.controls.url?.touched)">Required</em>
+        <input (ngModel)="newPost.url" name="url" required id="url" type="text" class="form-control" placeholder="Enter your photo URL">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': newPostForm.controls.thumbnailUrl?.invalid && newPostForm.controls.thumbnailUrl?.touched}">
+        <label for="thumbnailUrl">Photo Thumbnail URL</label>
+        <em *ngIf="newPostForm.controls.thumbnailUrl?.invalid && (newPostForm.controls.thumbnailUrl?.touched)">Required</em>
+        <input (ngModel)="newPost.thumbnailUrl" name="thumbnailUrl" required id="thumbnailUrl" type="text" class="form-control" placeholder="Enter your photo thumbnail URL">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': newPostForm.controls.albumId?.invalid && newPostForm.controls.albumId?.touched}">
+        <label for="albumId">Album ID</label>
+        <em *ngIf="newPostForm.controls.albumId?.invalid && (newPostForm.controls.albumId?.touched)">Required</em>
+        <input (ngModel)="newPost.albumId" name="albumId" required id="albumId" type="number" class="form-control" placeholder="Enter the album ID">
+      </div>
+
+      <button type="submit" [disabled]="newPostForm.invalid" class="btn btn-primary">Save</button>
+      <button type="button"  class="btn btn-default" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>

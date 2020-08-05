@@ -1,0 +1,34 @@
+<div class="lista">
+  <h1 class="naslov">Edit Photo: </h1>
+  <hr>
+  <div class="col-md-6">
+    <form [formGroup]="postForm" (ngSubmit)="updatePost(postForm.value)">
+      <div class="form-group" [ngClass]="{'error': postForm.controls.title?.invalid && postForm.controls.title?.touched}">
+        <label for="title">Photo title</label>
+        <em *ngIf="postForm.controls.title?.invalid && (postForm.controls.title?.touched)">Required</em>
+        <input  formControlName="title" required id="title" type="text" class="form-control" placeholder="Enter your photo title">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': postForm.controls.url?.invalid && postForm.controls.url?.touched}">
+        <label for="url">Photo URL</label>
+        <em *ngIf="postForm.controls.url?.invalid && (postForm.controls.url?.touched)">Required</em>
+        <input formControlName="url" required id="url" type="text" class="form-control" placeholder="Enter your photo URL">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': postForm.controls.thumbnailUrl?.invalid && postForm.controls.thumbnailUrl?.touched}">
+        <label for="thumbnailUrl">Photo Thumbnail URL</label>
+        <em *ngIf="postForm.controls.thumbnailUrl?.invalid && (postForm.controls.thumbnailUrl?.touched)">Required</em>
+        <input formControlName="thumbnailUrl" required id="thumbnailUrl" type="text" class="form-control" placeholder="Enter your photo thumbnail URL">
+      </div>
+
+      <div class="form-group" [ngClass]="{'error': postForm.controls.albumId?.invalid && postForm.controls.albumId?.touched}">
+        <label for="albumId">Album ID</label>
+        <em *ngIf="postForm.controls.albumId?.invalid && (postForm.controls.albumId?.touched)">Required</em>
+        <input formControlName="albumId" required id="albumId" type="number" class="form-control" placeholder="Enter the album ID">
+      </div>
+
+      <button type="submit" [disabled]="postForm.invalid" class="btn btn-primary">Save</button>
+      <button type="button"  class="btn btn-default" (click)="cancel()">Cancel</button>
+    </form>
+  </div>
+</div>
