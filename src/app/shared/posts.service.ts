@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Post } from './post.model'
 import { catchError } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { Observable, of } from 'rxjs';
+import { Observable, of, throwError } from 'rxjs';
 
 @Injectable()
 export class PostsService {
@@ -16,7 +16,11 @@ export class PostsService {
   }
 
   getPost(id: number){
-    return this.http.get<Post>(this.apiUrl + "/" + id);
+    return this.http.get<Post>(this.apiUrl + "/" + id).pipe(catchError((err) => {
+      console.log('error caught');
+      this.router.navigate(['/404'])
+      return throwError(err);
+    }));
   }
 
   getAlbum(id: number){

@@ -2,7 +2,7 @@ import { Component } from '@angular/core'
 
 @Component({
   template: `
-    <h1 class="errorMessage text-danger">This page does not exist!!</h1>`,
+    <h1 class="errorMessage text-danger">404 PAGE NOT FOUND</h1>`,
   styles: [`
     .errorMessage {
       margin-top:150px;

@@ -1,6 +1,9 @@
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router'
 import { Injectable } from '@angular/core'
 import { PostsService } from './posts.service'
+import { catchError } from 'rxjs/operators'
+import { Observable, of } from 'rxjs'
+import { Post } from './post.model'
 
 @Injectable()
 export class PostRouteActivator implements CanActivate{
@@ -17,3 +20,4 @@ export class PostRouteActivator implements CanActivate{
     return postExists
   }
 }
+

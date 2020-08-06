@@ -52,4 +52,6 @@ export function checkDirtyState(component:any){
   if(component.isDirty)
     return window.confirm('You have not saved this post, do you really want to cancel?')
   return true;
+
+
 }

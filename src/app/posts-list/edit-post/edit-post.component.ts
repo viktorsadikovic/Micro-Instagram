@@ -10,7 +10,7 @@ import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angula
   styleUrls: ['./edit-post.component.css']
 })
 export class EditPostComponent implements OnInit {
-  isDirty: boolean = true;
+  isDirty: boolean = false;
   post: Post;
   postForm: FormGroup;
 
@@ -42,6 +42,7 @@ export class EditPostComponent implements OnInit {
       })
   }
   cancel(){
+    this.isDirty = true;
     this.router.navigate(['/posts'])
   }
   updatePost(post){
